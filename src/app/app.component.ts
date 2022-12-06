@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { BgservService } from './bgserv.service';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'angular-boilerplate';
+
+  constructor(public bgserv: BgservService) {
+   }
+
 }

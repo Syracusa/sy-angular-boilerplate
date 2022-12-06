@@ -7,7 +7,7 @@ import { LogService } from './log.service';
   providedIn: 'root'
 })
 export class WsConnService {
-  ws_port = '8765';
+  ws_port = '8764';
   ws_ip = '127.0.0.1'
 
   msgPublisher: Subject<any> = new Subject<any>();
@@ -64,12 +64,15 @@ export class WsConnService {
         this.tryconnect()
         this.ws_opened = true;
         await this.sleep(5000);
-      } 
+      } else {
+        console.log("Websocket Already Opened")
+      }
       await this.sleep(3000);
     } while (1);
   }
 
   constructor(public logservice: LogService) { 
+    console.log("Ws connection service start");
     this.tryconnect();
     this.ws_loop();
   }

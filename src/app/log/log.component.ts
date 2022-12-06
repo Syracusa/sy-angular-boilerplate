@@ -23,6 +23,7 @@ export class LogComponent implements OnInit {
   }
 
   constructor(public logservice: LogService) { 
+    console.log("Log service start");
     logservice.log_subject.subscribe(
       {next : (msg) => 
         {
